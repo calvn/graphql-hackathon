@@ -4,57 +4,48 @@ import {
   GraphQLString,
   GraphQLList,
 } from 'graphql';
-import {authors, books} from './db';
-import authorType from './authorType';
-import {bookType, bookInputType} from './bookType';
+import {items, reviews} from './newDb';
+import (itemType, itemInputType} from './itemType';
+import {reviewType, reviewInputType} from './reviewType';
 
 const rootFields = {
-  authors: {
-    type: new GraphQLList(authorType),
+  items: {
+    type: new GraphQLList(itemType),
     resolve: _ => {
-      return authors;
+      return items;
     }
   },
-  books: {
-    type: new GraphQLList(bookType),
-    resolve: _ => {
-      // Resolve functions can return promises
-      return Promise.resolve(books);
-    }
-  },
-  bookByID: {
-    type: bookType,
+  reviewsByItemID: {
+    type: new GraphQLList(reviewType),
     args: {
       id: {
         type: GraphQLString,
       }
     },
     resolve: (object, {id}, context, info) => {
-      return books.find(book => `book-${book.id}` == id);
+      return reviews.filter(review => `review-${review.id}` == id;
     }
   },
-  bookSearch: {
-    type: new GraphQLList(bookType),
+  itemByID: {
+    type: itemType,
+    args: {
+      id: {
+        type: GraphQLString,
+      }
+    },
+    resolve: (object, {id}, context, info) => {
+      return items.find(item => `item-${item.id}` == id);
+    }
+  },
+  itemSearch: {
+    type: new GraphQLList(itemType),
     args: {
       keyword: {
         type: GraphQLString,
       }
     },
     resolve: (object, {keyword}, context, info) => {
-      return books.filter(book => book.title.includes(keyword));
-    }
-  },
-  secret: {
-    type: GraphQLString,
-    resolve: (object, args, context, {rootValue}) => {
-      const user = rootValue.user;
-      if(!user) {
-        return 'only authorized users can know the secret';
-      }
-      if(user.name === 'admin' && user.pass === '123') {
-        return 'howdy admin';
-      }
-      return 'who are you?';
+      return items.filter(item => item.name.includes(keyword));
     }
   }
 };
@@ -79,16 +70,28 @@ const schema = new GraphQLSchema({
   mutation: new GraphQLObjectType({
     name: 'MutationRoot',
     fields: {
-      addBook: {
-        type: bookType,
+      addItem: {
+        type: itemType,
         args: {
-          book: {
-            type: bookInputType,
+          item: {
+            type: itemInputType,
           }
         },
-        resolve: (object, {book}) => {
-          books.push(book);
-          return book;
+        resolve: (object, {item}) => {
+          items.push(item);
+          return item;
+        }
+      },
+      addReview: {
+        type: reviewType,
+        args: {
+          review: {
+            type: reviewInputType,
+          }
+        },
+        resolve: (object, {review}) => {
+          reviews.push(review);
+          return review;
         }
       }
     }

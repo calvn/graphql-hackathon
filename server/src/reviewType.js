@@ -20,6 +20,7 @@ export const review = new GraphQLObjectType({
     rating: {type: GraphQLInt},
     comment: {type: GraphQLString},
     description: {type: GraphQLString},
+    itemId: {type: GraphQLString},
     item: {
       type: itemType,
       resolve: (review) => {

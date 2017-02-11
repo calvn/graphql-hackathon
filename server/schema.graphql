@@ -17,7 +17,8 @@ type Review {
   user: String
   rating: Int
   comment: String
-  item: String # Item Id
+  itemId: String
+  item: Item
 }
 
 input ItemInput {
@@ -45,12 +46,14 @@ type MutationRoot {
 type QueryRoot {
   viewer: Viewer
   items: [Item]
+  reviewsByItemID(id: String): [Reviews]
   itemByID(id: String): Item
   itemSearch(keyword: String): [Item]
 }
 
 type Viewer {
   items: [Item]
+  reviewsByItemID(id: String): [Reviews]
   itemByID(id: String): Item
   itemSearch(keyword: String): [Item]
 }
