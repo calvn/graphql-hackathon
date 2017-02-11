@@ -12,21 +12,35 @@ type Item {
   reviews: [Review]
 }
 
+input ItemInput {
+  id: String
+  name: String
+  link: String
+  stars: String
+  price: Float
+}
+
+type MutationRoot {
+  addItem(item: ItemInput): Item
+  addReview(review: ReviewInput): Review
+}
+
+type QueryRoot {
+  viewer: Viewer
+  items: [Item]
+  reviewsByItemID(id: String): [Review]
+  itemByID(id: String): Item
+  itemSearch(keyword: String): [Item]
+}
+
 type Review {
   id: String
   user: String
   rating: Int
   comment: String
+  description: String
   itemId: String
   item: Item
-}
-
-input ItemInput {
-  id: String
-  name: String
-  link: String
-
-  price: Float
 }
 
 input ReviewInput {
@@ -34,26 +48,12 @@ input ReviewInput {
   user: String
   rating: Int
   comment: String
-  stars: Int
-  itemId: String # Item Name
-}
-
-type MutationRoot {
-  addItem(item: ItemImput): Item
-  addReview(review: ReviewInput): Review
-}
-
-type QueryRoot {
-  viewer: Viewer
-  items: [Item]
-  reviewsByItemID(id: String): [Reviews]
-  itemByID(id: String): Item
-  itemSearch(keyword: String): [Item]
+  itemId: String
 }
 
 type Viewer {
   items: [Item]
-  reviewsByItemID(id: String): [Reviews]
+  reviewsByItemID(id: String): [Review]
   itemByID(id: String): Item
   itemSearch(keyword: String): [Item]
 }
