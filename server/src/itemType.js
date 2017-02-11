@@ -40,7 +40,7 @@ export const itemInputType = new GraphQLInputObjectType({
     id: {type: GraphQLString},
     name: {
       type: GraphQLString,
-      description: `##{"type":"text","placeholder":"Item","label":"hi","hint":"yo"}##`,
+      description: `##{"type":"text","placeholder":"The item name","label":"item-name","hint":"item-hint"}##`,
     },
     link: {type: GraphQLString},
     stars: {type: GraphQLString},
