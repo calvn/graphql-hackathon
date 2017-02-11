@@ -8,7 +8,7 @@ import {
 import {items, reviews} from './newDb';
 import itemType from './itemType';
 
-export const review = new GraphQLObjectType({
+export const reviewType = new GraphQLObjectType({
   name: 'Review',
   description: 'Review for a particular cool item.',
   fields:() => ({

@@ -2,6 +2,7 @@ import {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
+  GraphQLInputObjectType,
   GraphQLList,
 } from 'graphql';
 import {items, reviews} from './newDb';
