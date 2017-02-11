@@ -2,63 +2,63 @@
 export const items = [
   {
     id: 0,
-    item: 'Beer',
+    name: 'Beer',
     link: 'http://a.co/7g7y09h',
     price: 10.01,
     stars: 1
   },
   {
     id: 1,
-    item: 'Mac Computers',
+    name: 'Mac Computers',
     link: 'http://a.co/8Eqsqz0',
     price: 2000.99,
     stars: 1241
   },
   {
     id: 2,
-    item: 'Tea',
+    name: 'Tea',
     link: 'http://a.co/gswlitg',
     price: 5.43,
     stars: 4121
   },
   {
     id: 3,
-    item: 'Mechanical Keyboards',
+    name: 'Mechanical Keyboards',
     link: 'http://a.co/9gafmM4',
     price: 10.01,
     stars: 321
   },
   {
     id: 4,
-    item: 'Hoodies',
+    name: 'Hoodies',
     link: 'http://a.co/7Tw0DgC',
     price: 20.00,
     stars: 4523
   },
   {
     id: 5,
-    item: 'Millenium Falcon',
+    name: 'Millenium Falcon',
     link: 'http://a.co/8U68Krj',
     price: 9999999,
     stars: 2532
   },
   {
     id: 6,
-    item: 'Snow',
+    name: 'Snow',
     link: 'http://a.co/8UUkPyk',
     price: .01,
     stars: 54
   },
   {
     id: 7,
-    item: 'Whiskey',
+    name: 'Whiskey',
     link: 'http://a.co/0LnPx7L',
     price: 123.45,
     stars: 4521
   },
   {
     id: 8,
-    item: 'Ferrari',
+    name: 'Ferrari',
     link: 'http://a.co/4hvdlLd',
     price: 40.00,
     stars: 8592375
