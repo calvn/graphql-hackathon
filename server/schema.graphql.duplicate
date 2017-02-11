@@ -1,0 +1,54 @@
+schema {
+  query: QueryRoot
+  mutation: MutationRoot
+}
+
+type Item {
+  id: String
+  name: String
+  link: String
+  price: Float
+  stars: Int
+  reviews: [Review]
+}
+
+type Review {
+  id: String
+  user: String
+  rating: Int
+  comment: String
+  item: String # Item Name
+}
+
+input ItemInput {
+  id: String
+  name: String
+  link: String
+  price: Int
+}
+
+input ReviewInput {
+  id: String
+  user: String
+  rating: Int
+  comment: String
+  itemId: String # Item Name
+}
+
+type MutationRoot {
+  addItem(item: ItemImput): Item
+  addReview(review: ReviewInput): Review
+}
+
+type QueryRoot {
+  viewer: Viewer
+  items: [Item]
+  itemByID(id: String): Item
+  itemSearch(keyword: String): [Item]
+}
+
+type Viewer {
+  items: [Item]
+  itemByID(id: String): Item
+  itemSearch(keyword: String): [Item]
+}
