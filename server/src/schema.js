@@ -45,7 +45,7 @@ const rootFields = {
       }
     },
     resolve: (object, {keyword}, context, info) => {
-      return items.filter(item => item.name.includes(keyword));
+      return items.filter(item => item.name.toLowerCase().includes(keyword.toLowerCase()));
     }
   }
 };
