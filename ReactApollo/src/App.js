@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ApolloClient, { createNetworkInterface } from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+// import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Explorer from './Explorer'
 import InstaForm from './InstaForm'
+import MyClient from './MyClient'
 import { colorFg, colorBg, colorBg2 } from './_config'
 
 const Layout = ({ children }) => (
@@ -16,35 +15,15 @@ class App extends Component {
   constructor(...args) {
     super(...args)
     this.state = {
-      serverUri: 'http://deadpool.graphql.tk:5000/graphql'
+      serverUri: 'http://deadpool.graphql.tk:5000/graphql',
+      nextServerUri: 'http://deadpool.graphql.tk:5000/graphql'
     }
-
-    const networkInterface = createNetworkInterface({
-      uri: this.state.serverUri,
-      opts: { cors: true }
-    })
-
-    this.client = new ApolloClient({
-      networkInterface,
-
-      // Our backend has unique IDs, so we should use them for cache consistency
-      dataIdFromObject: r => r.id
-    })
     this.handleChangeTargetServer = this.handleChangeTargetServer.bind(this)
   }
 
   handleChangeTargetServer () {
-    console.log('handleChangeTargetServer, this.state.serverUri:', this.state.serverUri)
-
-    const networkInterface = createNetworkInterface({
-      uri: this.state.serverUri,
-      opts: { cors: true }
-    })
-    this.client.destory()
-    this.client = new ApolloClient({
-      networkInterface,
-      dataIdFromObject: r => r.id
-    })
+    console.log('handleChangeTargetServer, this.state.nextServerUri:', this.state.nextServerUri)
+    this.setState({ serverUri: this.state.nextServerUri })
   }
 
   render() {
@@ -53,14 +32,17 @@ class App extends Component {
     }
 
     return (
-      <ApolloProvider client={this.client}>
-        <Explorer
-          value={this.state.serverUri}
-          onChange={(e) => { this.setState({ serverUri: e && e.target && e.target.value })}}
-          onSubmit={this.handleChangeTargetServer}>
-          <InstaForm {...childProps } />
-        </Explorer>
-      </ApolloProvider>
+      <div>
+        {this.state.serverUri && <MyClient key={this.state.serverUri} serverUri={this.state.serverUri}>
+          <Explorer
+            value={this.state.nextServerUri}
+            didChange={this.state.nextServerUri && this.state.nextServerUri === this.state.serverUri}
+            onChange={(e) => { this.setState({ nextServerUri: e && e.target && e.target.value })}}
+            onSubmit={this.handleChangeTargetServer}>
+            <InstaForm {...childProps } />
+          </Explorer>
+        </MyClient>}
+      </div>
     );
   }
 }
