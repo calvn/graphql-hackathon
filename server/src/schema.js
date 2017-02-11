@@ -5,7 +5,7 @@ import {
   GraphQLList,
 } from 'graphql';
 import {items, reviews} from './newDb';
-import (itemType, itemInputType} from './itemType';
+import {itemType, itemInputType} from './itemType';
 import {reviewType, reviewInputType} from './reviewType';
 
 const rootFields = {
@@ -23,7 +23,7 @@ const rootFields = {
       }
     },
     resolve: (object, {id}, context, info) => {
-      return reviews.filter(review => `review-${review.id}` == id;
+      return reviews.filter(review => `review-${review.id}` == id);
     }
   },
   itemByID: {

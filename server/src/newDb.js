@@ -68,108 +68,107 @@ export const items = [
 export const reviews = [
   {
     id: 0,
-    user: 'joe schmo'
+    user: 'joe schmo',
     rating: 3,
     comment: 'it was ok',
     itemId: '3'
   },
   {
     id: 1,
-    user: 'joe schmo'
+    user: 'joe schmo',
     rating: 5,
     comment: 'it was great',
     itemId: '5'
   },
   {
     id: 2,
-    user: 'joe schmo'
+    user: 'joe schmo',
     rating: 3,
     comment: 'it was acceptable',
     itemId: '1'
   },
   {
     id: 3,
-    user: 'joe schmos son'
+    user: 'joe schmos son',
     rating: 1,
     comment: 'I think you should really buy this as well!!!!!!!',
     itemid: '2'
   },
   {
     id: 4,
-    user: 'joe schmos father in law'
+    user: 'joe schmos father in law',
     rating: 5,
     comment: 'could have been worse',
     itemId: '8'
   },
   {
     id: 5,
-    user: 'calvin'
+    user: 'calvin',
     rating: 2,
     comment: 'something something somethign garbage',
     itemId: '6'
   },
   {
     id: 6,
-    user: 'test user'
+    user: 'test user',
     rating: 5,
     comment: 'insert good review here',
     itemId: '7'
   },
   {
     id: 7,
-    user: 'joe schmos assistant'
+    user: 'joe schmos assistant',
     rating: 5,
     comment: 'wow this changed by life',
     itemId: '0'
   },
   {
     id: 8,
-    user: 'donald trump'
+    user: 'donald trump',
     rating: 5,
     comment: 'this will make america great again',
     itemId: '2'
   },
   {
     id: 9,
-    user: 'some guy'
+    user: 'some guy',
     rating: 2,
     comment: 'this is some product',
     itemId: '5'
   },
   {
     id: 10,
-    user: 'donald trump'
+    user: 'donald trump',
     rating: 4,
     comment: 'Im not going to spread some false news about this, but it was pretty good',
     itemId: '2'
   },
   {
     id: 11,
-    user: 'calvin'
+    user: 'calvin',
     rating: 4,
     comment: 'hahahahahahahahahahahahahaha',
     itemId: '4'
   },
   {
     id: 12,
-    user: 'joe schmo'
+    user: 'joe schmo',
     rating: 1,
     comment: 'horrible product never again',
     itemId: '1'
   },
   {
     id: 13,
-    user: 'ms piggy'
+    user: 'ms piggy',
     rating: 4,
     comment: 'kermit would love this',
     itemId: '4'
   },
   {
     id: 14,
-    user: 'kermit'
+    user: 'kermit',
     rating: 1,
     comment: 'fewinuiewnfoweiufweifuw eiuofbwidnfuywgu eanifweionworugeriubgiuw',
     itemId: '6'
   },
 ];
-
