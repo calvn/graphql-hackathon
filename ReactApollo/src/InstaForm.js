@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TypeWriter from 'react-typewriter'
-import withValidations from 'react-validate-hoc'
 import { colorFg, colorBg, colorLabel } from './_config'
 
 class InstaForm extends Component {
@@ -25,7 +24,7 @@ class InstaForm extends Component {
           value: ''
         }
       ],
-      onSubmit = (e) => { e.preventDefault(); console.log(e); },
+      onSubmit = (e) => { e.preventDefault(); console.log(e) },
       children,
       ...rest
     } = this.props
