@@ -7,7 +7,8 @@ type Item {
   id: String
   name: String
   link: String
-  price: Int
+  price: Float
+  stars: Int
   reviews: [Review]
 }
 
@@ -16,14 +17,15 @@ type Review {
   user: String
   rating: Int
   comment: String
-  item: String # Item Name
+  item: String # Item Id
 }
 
 input ItemInput {
   id: String
   name: String
   link: String
-  price: Int
+
+  price: Float
 }
 
 input ReviewInput {
@@ -31,6 +33,7 @@ input ReviewInput {
   user: String
   rating: Int
   comment: String
+  stars: Int
   itemId: String # Item Name
 }
 
