@@ -12,18 +12,15 @@ const Layout = ({ children }) => (
   })}</div>
 )
 
-// Replace this Uri with your GraphQL server Uri
-const serverUri = 'http://deadpool.graphql.tk:5000/graphql'
-
 class App extends Component {
   constructor(...args) {
     super(...args)
     this.state = {
-      inputValue: ''
+      serverUri: 'http://deadpool.graphql.tk:5000/graphql'
     }
 
     const networkInterface = createNetworkInterface({
-      uri: serverUri,
+      uri: this.state.serverUri,
       opts: { cors: true }
     })
 
@@ -33,18 +30,36 @@ class App extends Component {
       // Our backend has unique IDs, so we should use them for cache consistency
       dataIdFromObject: r => r.id
     })
+    this.handleChangeTargetServer = this.handleChangeTargetServer.bind(this)
+  }
+
+  handleChangeTargetServer () {
+    console.log('handleChangeTargetServer, this.state.serverUri:', this.state.serverUri)
+
+    const networkInterface = createNetworkInterface({
+      uri: this.state.serverUri,
+      opts: { cors: true }
+    })
+    this.client.destory()
+    this.client = new ApolloClient({
+      networkInterface,
+      dataIdFromObject: r => r.id
+    })
   }
 
   render() {
+    const childProps = {
+      // TODO!!!
+    }
+
     return (
       <ApolloProvider client={this.client}>
-        <Router history={browserHistory}>
-          <Route path="/" component={Explorer}>
-            <Route component={Layout}>
-              <IndexRoute component={InstaForm} />
-            </Route>
-          </Route>
-        </Router>
+        <Explorer
+          value={this.state.serverUri}
+          onChange={(e) => { this.setState({ serverUri: e && e.target && e.target.value })}}
+          onSubmit={this.handleChangeTargetServer}>
+          <InstaForm {...childProps } />
+        </Explorer>
       </ApolloProvider>
     );
   }
