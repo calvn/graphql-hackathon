@@ -2,13 +2,15 @@ import {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
+  GraphQLFloat,
+  GraphQLInt,
   GraphQLInputObjectType,
   GraphQLList,
 } from 'graphql';
 import {items, reviews} from './newDb';
 import reviewType from './reviewType';
 
-const itemType = new GraphQLObjectType({
+export const itemType = new GraphQLObjectType({
   name: 'Item',
   description: 'The item of the cool thing you want.',
   fields:() => ({
@@ -42,6 +44,5 @@ export const itemInputType = new GraphQLInputObjectType({
     price: {type: GraphQLFloat},
   }),
 });
-
 
 export default itemType;
