@@ -71,105 +71,105 @@ export const reviews = [
     user: 'joe schmo'
     rating: 3,
     comment: 'it was ok',
-    item: '3'
+    itemId: '3'
   },
   {
     id: 1,
     user: 'joe schmo'
     rating: 5,
     comment: 'it was great',
-    item: '5'
+    itemId: '5'
   },
   {
     id: 2,
     user: 'joe schmo'
     rating: 3,
     comment: 'it was acceptable',
-    item: '1'
+    itemId: '1'
   },
   {
     id: 3,
     user: 'joe schmos son'
     rating: 1,
     comment: 'I think you should really buy this as well!!!!!!!',
-    item: '2'
+    itemid: '2'
   },
   {
     id: 4,
     user: 'joe schmos father in law'
     rating: 5,
     comment: 'could have been worse',
-    item: '8'
+    itemId: '8'
   },
   {
     id: 5,
     user: 'calvin'
     rating: 2,
     comment: 'something something somethign garbage',
-    item: '6'
+    itemId: '6'
   },
   {
     id: 6,
     user: 'test user'
     rating: 5,
     comment: 'insert good review here',
-    item: '7'
+    itemId: '7'
   },
   {
     id: 7,
     user: 'joe schmos assistant'
     rating: 5,
     comment: 'wow this changed by life',
-    item: '0'
+    itemId: '0'
   },
   {
     id: 8,
     user: 'donald trump'
     rating: 5,
     comment: 'this will make america great again',
-    item: '2'
+    itemId: '2'
   },
   {
     id: 9,
     user: 'some guy'
     rating: 2,
     comment: 'this is some product',
-    item: '5'
+    itemId: '5'
   },
   {
     id: 10,
     user: 'donald trump'
     rating: 4,
     comment: 'Im not going to spread some false news about this, but it was pretty good',
-    item: '2'
+    itemId: '2'
   },
   {
     id: 11,
     user: 'calvin'
     rating: 4,
     comment: 'hahahahahahahahahahahahahaha',
-    item: '4'
+    itemId: '4'
   },
   {
     id: 12,
     user: 'joe schmo'
     rating: 1,
     comment: 'horrible product never again',
-    item: '1'
+    itemId: '1'
   },
   {
     id: 13,
     user: 'ms piggy'
     rating: 4,
     comment: 'kermit would love this',
-    item: '4'
+    itemId: '4'
   },
   {
     id: 14,
     user: 'kermit'
     rating: 1,
     comment: 'fewinuiewnfoweiufweifuw eiuofbwidnfuywgu eanifweionworugeriubgiuw',
-    item: '6'
+    itemId: '6'
   },
 ];
 
