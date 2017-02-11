@@ -3,47 +3,51 @@ schema {
   mutation: MutationRoot
 }
 
-type Author {
+type Item {
   id: String
   name: String
-  image: String
-  books: [Book]
+  link: String
+  price: Int
+  reviews: [Review]
 }
 
-type Book {
+type Review {
   id: String
-  title: String
-  image: String
-  authorId: String
-  description: String
-  author: Author
+  user: String
+  rating: Int
+  comment: String
+  item: String # Item Name
 }
 
-input BookInput {
+input ItemInput {
   id: String
-  title: String
-  image: String
-  description: String
-  authorId: String
+  name: String
+  link: String
+  price: Int
+}
+
+input ReviewInput {
+  id: String
+  user: String
+  rating: Int
+  comment: String
+  itemId: String # Item Name
 }
 
 type MutationRoot {
-  addBook(book: BookInput): Book
+  addItem(item: ItemImput): Item
+  addReview(review: ReviewInput): Review
 }
 
 type QueryRoot {
   viewer: Viewer
-  authors: [Author]
-  books: [Book]
-  bookByID(id: String): Book
-  bookSearch(keyword: String): [Book]
-  secret: String
+  items: [Item]
+  itemByID(id: String): Item
+  itemSearch(keyword: String): [Item]
 }
 
 type Viewer {
-  authors: [Author]
-  books: [Book]
-  bookByID(id: String): Book
-  bookSearch(keyword: String): [Book]
-  secret: String
+  items: [Item]
+  itemByID(id: String): Item
+  itemSearch(keyword: String): [Item]
 }
