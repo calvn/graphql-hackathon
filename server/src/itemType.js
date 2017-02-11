@@ -4,29 +4,30 @@ import {
   GraphQLString,
   GraphQLList,
 } from 'graphql';
-import {authors, books} from './db';
-import bookType from './bookType';
+import {items, reviews} from './newDb';
+import reviewType from './reviewType';
 
-const authorType = new GraphQLObjectType({
-  name: 'Author',
-  description: 'The creator of books',
+const itemType = new GraphQLObjectType({
+  name: 'Item',
+  description: 'The item of the cool thing you want',
   fields:() => ({
     id: {
       type: GraphQLString,
-      resolve: (author) => `author-${author.id}`,
+      resolve: (author) => `item-${item.id}`,
     },
     name: {type: GraphQLString},
-    image: {type: GraphQLString},
-    books: {
-      type: new GraphQLList(bookType),
-      resolve: (author) => {
-        const authorsBooks = books.filter(
-          book => book.authorId === author.id
+    link: {type: GraphQLString},
+    price: {type: GraphQLFloat},
+    reviews: {
+      type: new GraphQLList(reviewType),
+      resolve: (item) => {
+        const itemReviews = reviews.filter(
+          review => review.itemId === item.id
         );
-        return authorsBooks;
+        return itemReviews;
       }
     }
   }),
 });
 
-export default authorType;
+export default itemType;
