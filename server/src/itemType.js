@@ -26,7 +26,7 @@ export const itemType = new GraphQLObjectType({
       type: new GraphQLList(reviewType),
       resolve: (item) => {
         const itemReviews = reviews.filter(
-          review => review.itemId === item.id
+          review => review.itemId == item.id
         );
         return itemReviews;
       }
