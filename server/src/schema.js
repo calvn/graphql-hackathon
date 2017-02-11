@@ -23,7 +23,7 @@ const rootFields = {
       }
     },
     resolve: (object, {id}, context, info) => {
-      return reviews.filter(review => `review-${review.id}` == id);
+      return reviews.filter(review => `${review.itemId}` == id);
     }
   },
   itemByID: {
